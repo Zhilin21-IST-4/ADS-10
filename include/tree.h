@@ -17,21 +17,21 @@ class Tree {
     if (_numbers.size() == 0)
       return;
     if (root->value != '-') {
-      for (auto  n = _numbers.begin(); n != _numbers.end(); ++n) {
-        if (*n == root->value) {
-          _numbers.erase(n);
+      for (auto i = _numbers.begin(); i != _numbers.end(); ++i) {
+        if (*i == root->value) {
+          _numbers.erase(i);
           break;
         }
       }
     }
-    for (size_t n = 0; n < _numbers.size(); ++n) {
+    for (size_t i = 0; i < _numbers.size(); ++i) {
       root->chd.push_back(new Node);
     }
-    for (size_t n = 0; n < root->chd.size(); ++n) {
-      root->chd[n]->value = _numbers[n];
+    for (size_t i = 0; i < root->chd.size(); ++i) {
+      root->chd[i]->value = _numbers[i];
     }
-    for (size_t n = 0; n < root->chd.size(); ++n) {
-      createTree(root->chd[n], _numbers);
+    for (size_t i = 0; i < root->chd.size(); ++i) {
+      createTree(root->chd[i], _numbers);
     }
   }
   void perem(Node* root, std::string number = "") {
@@ -43,14 +43,14 @@ class Tree {
       numbers.push_back(number);
       return;
     }
-    for (size_t n = 0; n < root->chd.size(); ++n) {
-      perem(root->chd[n], number);
+    for (size_t i = 0; i < root->chd.size(); ++i) {
+      perem(root->chd[i], number);
     }
   }
 
  public:
-  std::string operator[](int n) const {
-  return numbers[n];
+  std::string operator[](int i) const {
+  return numbers[i];
   }
   explicit Tree(std::vector<char> value) {
     root = new Node;
